@@ -65,7 +65,7 @@ header{position:relative;padding-right:64px}
 var bt=document.getElementById("btnTop");if(bt)bt.onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};
 var bd=document.getElementById("btnDown");if(bd)bd.onclick=function(){window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});};
 var grid=document.getElementById("gridBai");if(!grid)return;
-var cards=Array.prototype.slice.call(grid.children);var PER=20;var total=Math.max(1,Math.ceil(cards.length/PER));
+var cards=Array.prototype.slice.call(grid.children);var PER=30;var total=Math.max(1,Math.ceil(cards.length/PER));
 function cur(){var m=(location.hash||"").match(/^#trang=(\d+)$/);var p=m?parseInt(m[1],10):1;if(p<1)p=1;if(p>total)p=total;return p;}
 function go(p){if(p<1)p=1;if(p>total)p=total;if(("#trang="+p)===location.hash){render();}else{location.hash="trang="+p;}var y=grid.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:y<0?0:y,behavior:"smooth"});}
 function mkBtn(txt,p,on,dis){var b=document.createElement("button");b.textContent=txt;if(on)b.className="on";b.disabled=!!dis;b.onclick=function(){go(p);};return b;}
